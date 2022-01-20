@@ -1,4 +1,3 @@
-# from django import template
 from django.utils import timezone
 from django import template
 from django.shortcuts import render, get_object_or_404
@@ -28,7 +27,7 @@ class DetailView(generic.DetailView):
         Excludes any question that aren't published yet.
         """
         return Question.objects.filter(pub_date__lte=timezone.now()
-        ).order_by('-pub_date')[:5]
+        )
         
 class ResultView(generic.DetailView):
     model = Question
